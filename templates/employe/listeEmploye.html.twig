@@ -1,0 +1,22 @@
+{% if(message)%}
+    {{message}}
+{% endif %}
+<h2>Liste des employes</h2>
+{% for employe in ensEmploye %}
+<table cellspacing="3" bgcolor="#000000">
+    <tr bgcolor="#ffffff">
+        <th>nom</th>
+        <th>prenom</th>
+        <th></th>
+       
+    </tr>
+    <tr bgcolor="#ffffff">
+        
+        <td>{{ employe.nom }}</td>
+        <td>{{ employe.prenom }}</td>
+        <td><a href ="{{path('app_cherche',{'id': employe.id})}}">Voir ses inscriptions</a></td>
+    </tr>
+</table>
+<br>
+{% endfor %}
+<td><a href ="{{path('app_demandInscri')}}">retour</a></td>

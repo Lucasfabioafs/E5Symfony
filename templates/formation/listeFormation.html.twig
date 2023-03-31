@@ -1,0 +1,37 @@
+{% if(message)%}
+    {{message}}
+{% endif %}
+<h2>Liste des formations</h2>
+{% for formation in ensFormation %}
+<table cellspacing="3" bgcolor="#000000">
+    <tr bgcolor="#ffffff">
+        <th>date debut</th>
+        <th>nombre heures</th>
+        <th>departement</th>
+        <th>difficulte</th>
+        <th>produit</th>
+        
+        <th>Inscription</th>
+    </tr>
+    <tr bgcolor="#ffffff">
+        <td>{{ formation.dateDebut |date('d-m-Y') }}</td>
+        <td>{{ formation.nbHeure }}</td>
+        <td>{{ formation.departement }}</td>
+        <td>{{ formation.difficulte }}</td>
+        <td>{{ formation.leproduit.libelle }}</td>
+        <td><a href ="{{path('app_film_sup',{'id': formation.id})}}">suppression</a><br/></td>
+    </tr>
+</table>
+
+
+
+<br>
+{% endfor %}
+
+<a href ="{{path('app_demandInscri')}}">Valider une Formation</a><br/>
+<a href ="{{path('app_ajout_formation')}}">Ajouter une formation</a><br/>
+
+
+
+
+

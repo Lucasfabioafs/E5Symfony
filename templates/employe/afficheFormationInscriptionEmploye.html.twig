@@ -1,0 +1,26 @@
+
+{% if(message)%}
+    {{message}}
+{% endif %}
+<h2>Liste des formations</h2>
+{% for inscription in ensFormation %}
+<table cellspacing="3" bgcolor="#000000">
+    <tr bgcolor="#ffffff">
+        <th>statut</th>
+        <th>nom</th>
+        <th>difficulte</th>
+        <th>formation</th>
+    </tr>
+    <tr bgcolor="#ffffff">
+        <td>{{ inscription.statut}}</td>
+        <td>{{ inscription.lemploye.nom}}</td>
+        <td>{{ inscription.laFormation.difficulte}}</td>
+        <td>{{ inscription.laFormation.leProduit.libelle}}</td>
+    </tr>
+</table>
+<br>
+
+
+
+{% endfor %}
+<a href ="{{path('app_affEmploye')}}">retour inscription</a><br/>

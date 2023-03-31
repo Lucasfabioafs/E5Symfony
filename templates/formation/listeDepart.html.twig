@@ -1,0 +1,18 @@
+
+<h2>Liste departement</h2>
+{% for formation in ensFormation %}
+<table cellspacing="3" bgcolor="#000000">
+    <tr bgcolor="#ffffff">
+        <th>departement</th> 
+        <th>voir formation</th> 
+
+    </tr>
+    <tr bgcolor="#ffffff">
+     
+        <td>{{ formation.departement }}</td>
+    <td><a href ="{{path('app_voirDepartement',{'departement': formation.departement})}}">voir</a></td>
+    </tr>
+</table>
+<br>
+{% endfor %}
+ <td><a href ="{{path('app_affEmploye')}}">voir toutes les formations</a></td>

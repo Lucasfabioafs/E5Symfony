@@ -1,0 +1,29 @@
+{% if(message)%}
+    {{message}}
+{% endif %}
+<h2>Liste des demandes inscription aux formations</h2>
+{% for inscription in ensInscription %}
+<table cellspacing="3" bgcolor="#000000">
+    <tr bgcolor="#ffffff">
+        <th>statut</th>
+        <th>employe</th>
+        <th>formation</th>
+        <th>difficulte</th>
+        <th>accepter</th>
+        <th>refuser</th>
+
+    </tr>
+    <tr bgcolor="#ffffff">
+        <td>{{ inscription.statut}}</td>
+        <td>{{ inscription.lemploye.nom }}</td>
+        <td>{{ inscription.laFormation.leproduit.libelle }}</td>
+        <td>{{ inscription.laFormation.difficulte}}</td>
+        <td><a href ="{{path('app_accepter',{'id': inscription.id})}}">accepter</a></td>
+        <td><a href ="{{path('app_refuser',{'id': inscription.id})}}">refuser</a></td>
+    </tr>
+</table>
+<br>
+{% endfor %}
+
+<a href ="{{path('app_aff')}}">retour menu</a><br>
+<a href ="{{path('app_ListeEmploye')}}">voir Employés</a>
